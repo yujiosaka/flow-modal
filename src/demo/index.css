@@ -1,0 +1,65 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
+
+flow-step:not(:defined),
+flow-modal:not(:defined),
+flow-badge:not(:defined),
+storybook-button:not(:defined) {
+  display: none;
+}
+
+flow-step {
+  color: #213547;
+
+  --modal-align-items: end;
+  --modal-show-animation: fly-in-from-bottom;
+  --modal-hide-animation: fly-out-to-bottom;
+}
+
+@media (min-width: 600px) {
+  flow-step {
+    --modal-align-items: center;
+  }
+}
+
+flow-badge {
+  --badge-right: 20px;
+  --badge-bottom: 20px;
+
+  --button-color: rgba(255, 255, 255, 1);
+  --button-show-animation: fly-in-from-bottom;
+  --button-hide-animation: fly-out-to-bottom;
+  --button-background-color: rgba(255, 152, 0, 1);
+
+  --hint-show-animation: zoom-in;
+  --hint-hide-animation: zoom-out;
+}
+
+.control {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 2147483647;
+}

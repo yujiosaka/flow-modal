@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flow Modal Example</title>
+    <link rel="stylesheet" href="./src/demo/index.css" />
+    <script src="/src/demo/index.ts" defer></script>
+    <script type="module" src="/src/index.ts"></script>
+    <script type="module" src="/src/storybook-components/index.ts"></script>
+  </head>
+  <body>
+    <flow-modal>
+      <flow-step backdrop ready timeout-duration="1m" hide-button-icon="close">
+        <flow-badge hint-text="Click to open modal" button-icon="bell" button-count-down-format="mm:ss"></flow-badge>
+
+        <h2>Welcome to Our Presentation!</h2>
+        <p>This is the first step of our presentation flow. You have one minute to review this announcement.</p>
+      </flow-step>
+
+      <flow-step backdrop ready>
+        <flow-badge button-text="Click"></flow-badge>
+
+        <h2>Presentation Details</h2>
+        <p>Thank you for viewing the introduction. This is the second step of the presentation.</p>
+      </flow-step>
+    </flow-modal>
+
+    <div class="control">
+      <storybook-button
+        class="control__button--secondary"
+        background-color="white"
+        label="refreshState(false)"
+      ></storybook-button>
+
+      <storybook-button class="control__button--primary" primary label="refreshState(true)"></storybook-button>
+    </div>
+  </body>
+</html>
