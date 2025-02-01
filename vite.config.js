@@ -1,3 +1,4 @@
+import { withoutVitePlugins } from '@storybook/builder-vite';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
@@ -11,5 +12,10 @@ export default defineConfig({
       fileName: () => 'index.js',
     },
     sourcemap: true,
+  },
+  async viteFinal(config) {
+    config.plugins = await withoutVitePlugins(config.plugins, ['vite:dts']);
+
+    return config;
   },
 });
