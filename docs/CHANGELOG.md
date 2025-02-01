@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/yujiosaka/flow-modal/compare/v1.0.0...v1.0.1) (2025-02-01)
+
+### Bug Fixes
+
+- fix failure to build storybook ([ffaa021](https://github.com/yujiosaka/flow-modal/commit/ffaa02153f65d19f4ce0e5cefd2ddcb23ac5bd55))
+
 # 1.0.0 (2025-02-01)
 
 ### Features
