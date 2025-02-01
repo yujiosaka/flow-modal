@@ -62,6 +62,26 @@ Include the components in your project by importing them from the published pack
 </html>
 ```
 
+### Using via CDN
+
+If you prefer not to install via npm or wish to try out flow-modal quickly, you can load the minified version directly from a CDN. Both unpkg and jsDelivr host the built file from our npm package:
+
+- **Using unpkg:**
+
+  ```html
+  <script type="module" src="https://unpkg.com/flow-modal/dist/index.js"></script>
+  ```
+
+- **Using jsDelivr:**
+
+  ```html
+  <script type="module" src="https://cdn.jsdelivr.net/npm/flow-modal/dist/index.js"></script>
+  ```
+
+Simply include one of these `<script>` tags in your HTML `<head>` and start using flow-modal as documented above.
+
+### Live Demo
+
 You can also explore the live [Storybook on Chromatic](https://main--67987fa0e37e8d240be96359.chromatic.com/) for interactive examples and to tweak properties in real time.
 
 ## 🧑‍💻️ API reference
@@ -83,7 +103,7 @@ flow-modal supports a variety of animations that you can use to customize the ap
 
 ## 💻 Testing
 
-CascadeStorage includes a series of [Bun](https://bun.sh/) tests verifying functionality.
+flow-modal includes a series of [Bun](https://bun.sh/) tests verifying functionality.
 
 ```bash
 bun test
