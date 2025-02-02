@@ -1,3 +1,9 @@
+# [1.1.0](https://github.com/yujiosaka/flow-modal/compare/v1.0.2...v1.1.0) (2025-02-02)
+
+### Features
+
+- support storages attribute in <flow-modal> ([d6dad94](https://github.com/yujiosaka/flow-modal/commit/d6dad94c224c046365e951c73a12ad66bb09ba30))
+
 ## [1.0.2](https://github.com/yujiosaka/flow-modal/compare/v1.0.1...v1.0.2) (2025-02-01)
 
 ### Bug Fixes
