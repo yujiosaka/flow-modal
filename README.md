@@ -101,6 +101,19 @@ flow-modal supports a variety of animations that you can use to customize the ap
 | `fly-in-from-bottom` | ![fly-in-from-bottom](https://github.com/user-attachments/assets/fe1ab851-71d8-4dfa-8caa-66358c97e908) | `fly-out-to-bottom` | ![fly-out-to-bottom](https://github.com/user-attachments/assets/789f5f6b-07f4-4a4d-8bd1-6cfcb4bac25c) |
 | `zoom-in`            | ![zoom-in](https://github.com/user-attachments/assets/4049f6b0-f747-43de-a5f4-608aabb299c2)            | `zoom-out`          | ![zoom-out](https://github.com/user-attachments/assets/52359aca-0ca7-4cf4-af5a-bafa9592c871)          |
 
+## 🐞 Tips
+
+### Prevent Flash of Unstyled Content (FOUC)
+
+To ensure a smooth user experience and prevent the flash of unstyled content before the web components have fully loaded, add the following CSS rule to your global stylesheet or inline in the `<head>` of your HTML document:
+
+```css
+flow-step:not(:defined),
+flow-modal:not(:defined) {
+  display: none;
+}
+```
+
 ## 💻 Testing
 
 flow-modal includes a series of [Bun](https://bun.sh/) tests verifying functionality.
