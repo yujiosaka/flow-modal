@@ -3,7 +3,7 @@ import { LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import ms from 'ms';
 
-import { durationProperty, queryParentElement } from '../src/decorators.js';
+import { durationProperty, queryParentElement, stringArrayProperty } from '../src/decorators.js';
 import { FlowModalError } from '../src/errors.js';
 
 describe('queryParentElement', () => {
@@ -50,5 +50,42 @@ describe('durationProperty', () => {
       error = err;
     }
     expect(error).toBeInstanceOf(FlowModalError);
+  });
+});
+
+describe('stringArrayProperty', () => {
+  @customElement('string-array-test')
+  class StringArrayTest extends LitElement {
+    @stringArrayProperty()
+    myArray: string[] = [];
+  }
+
+  it('parses a comma-separated string into an array', async () => {
+    const element = document.createElement('string-array-test') as StringArrayTest;
+    element.setAttribute('myArray', 'one,two, three');
+    document.body.appendChild(element);
+    await element.updateComplete;
+    expect(element.myArray).toEqual(['one', 'two', 'three']);
+  });
+
+  it('returns the default value if attribute is not set', async () => {
+    const element = document.createElement('string-array-test') as StringArrayTest;
+    element.myArray = ['default'];
+    document.body.appendChild(element);
+    await element.updateComplete;
+    expect(element.myArray).toEqual(['default']);
+  });
+
+  it('supports a custom separator', async () => {
+    @customElement('custom-separator-element')
+    class CustomSeparatorElement extends LitElement {
+      @stringArrayProperty({ separator: ';' })
+      items: string[] = [];
+    }
+    const el = document.createElement('custom-separator-element') as CustomSeparatorElement;
+    el.setAttribute('items', 'a; b; c');
+    document.body.appendChild(el);
+    await el.updateComplete;
+    expect(el.items).toEqual(['a', 'b', 'c']);
   });
 });

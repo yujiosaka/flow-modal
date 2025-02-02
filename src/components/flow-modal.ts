@@ -6,10 +6,10 @@ import { html } from 'lit';
 import { customElement, property, queryAssignedElements } from 'lit/decorators.js';
 import ms from 'ms';
 
-import { durationProperty } from '../decorators.js';
+import { assertEventType, assertStorages } from '../assertions.js';
+import { durationProperty, stringArrayProperty } from '../decorators.js';
 import { FlowModalError } from '../errors.js';
 import {
-  assertEventType,
   FlowModalEvaluatedEvent,
   FlowModalStartedEvent,
   FlowModalTimedOutEvent,
@@ -43,6 +43,12 @@ export class FlowModal extends FlowElement {
    */
   @property({ type: Boolean, attribute: 'deactivated', reflect: true })
   deactivated = false;
+
+  /**
+   * Comma‑separated list of storages to use with CascadeStorage.
+   */
+  @stringArrayProperty({ attribute: 'storages' })
+  storages: string[] = ['local', 'cookie', 'memory'];
 
   /**
    * Namespace for storing flow state.
@@ -135,8 +141,10 @@ export class FlowModal extends FlowElement {
   }
 
   #initializeStorage(): void {
+    assertStorages(this.storages);
+
     this.#storage = new CascadeStorage({
-      storages: ['local', 'cookie', 'memory'],
+      storages: this.storages,
       namespace: this.storageNamespace,
       expireDays: this.#expireDays,
     });

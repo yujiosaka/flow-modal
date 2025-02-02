@@ -251,12 +251,3 @@ export class FlowBadgeClickedEvent extends CustomEvent<FlowBadgeClickedEventDeta
     });
   }
 }
-
-/**
- * Asserts that the event is of the expected type.
- */
-export function assertEventType<T extends Event>(event: Event, type: string): asserts event is T {
-  if (event.type !== type) {
-    throw new Error(`Expected event type to be ${type}`);
-  }
-}

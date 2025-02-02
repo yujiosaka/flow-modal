@@ -7,10 +7,10 @@ import { styleMap } from 'lit/directives/style-map.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import ms from 'ms';
 
+import { assertEventType } from '../assertions.js';
 import { durationProperty, queryParentElement } from '../decorators.js';
 import { FlowModalError } from '../errors.js';
 import {
-  assertEventType,
   FlowBadgeActivatedEvent,
   FlowBadgeClickedEvent,
   FlowBadgeDeactivatedEvent,

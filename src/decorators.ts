@@ -2,7 +2,7 @@ import type { PropertyDeclaration, ReactiveElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import ms from 'ms';
 
-import { createDurationConverter } from './converters.js';
+import { createDurationConverter, createStringArrayConverter } from './converters.js';
 
 type Interface<T> = { [K in keyof T]: T[K] };
 
@@ -38,5 +38,19 @@ export function durationProperty(options: PropertyDeclaration<number, ms.StringV
 
     const converter = createDurationConverter(attribute);
     property({ ...options, attribute, converter })(target, propertyKey);
+  };
+}
+
+/**
+ * A decorator to define a string array property that automatically converts a
+ * separated string (by default comma‑separated) into an array.
+ */
+export function stringArrayProperty(
+  options: Partial<PropertyDeclaration<string[], string>> & { separator?: string } = {},
+): PropertyDecorator {
+  return (target: object, propertyKey: string | symbol) => {
+    const separator = options.separator ?? ',';
+    const converter = createStringArrayConverter(separator);
+    property({ ...options, converter })(target, propertyKey);
   };
 }

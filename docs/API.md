@@ -12,11 +12,12 @@ A container for managing multi‑step experiences. It handles state persistence,
 
 ### Attributes
 
-| Attribute           | Type    | Default        | Description                                                                                      | CSS Variable |
-| ------------------- | ------- | -------------- | ------------------------------------------------------------------------------------------------ | ------------ |
-| `deactivated`       | Boolean | `false`        | Prevents activating any steps when set to true.                                                  | —            |
-| `storage-namespace` | String  | `"flow-modal"` | Namespace used to store the flow state. Change this to isolate flows between different contexts. | —            |
-| `storage-duration`  | String  | `"30m"`        | Duration for persisting the flow state (supports formats like `"30m"` or `"1h"`).                | —            |
+| Attribute           | Type    | Default               | Description                                                                                                   | CSS Variable |
+| ------------------- | ------- | --------------------- | ------------------------------------------------------------------------------------------------------------- | ------------ |
+| `deactivated`       | Boolean | `false`               | Prevents activating any steps when set to true.                                                               | —            |
+| `storage-namespace` | String  | `"flow-modal"`        | Namespace used to store the flow state. Change this to isolate flows between different contexts.              | —            |
+| `storage-duration`  | String  | `"30m"`               | Duration for persisting the flow state (supports formats like `"30m"` or `"1h"`).                             | —            |
+| `storages`          | String  | `local,cookie,memory` | Comma‑separated list of storages to use with [cascade-storage](https://github.com/yujiosaka/cascade-storage). | —            |
 
 ### Public Methods
 

@@ -37,6 +37,7 @@ import type {
 interface FlowModalStoryArgs {
   // <flow-modal>
   deactivated: boolean;
+  storages?: string;
   storageNamespace: string;
   storageDuration: string;
   onModalStarted: (event: FlowModalStartedEvent) => void;
@@ -130,6 +131,11 @@ const meta: Meta<FlowModalStoryArgs> = {
     deactivated: {
       control: 'boolean',
       description: 'Deactivates the modal and all steps if true.',
+      table: { category: '<flow-modal>' },
+    },
+    storages: {
+      control: 'text',
+      description: 'Comma-separated list of storages for CascadeStorage. For example: "memory".',
       table: { category: '<flow-modal>' },
     },
     storageNamespace: {
@@ -507,6 +513,7 @@ function renderFlowModal(args: FlowModalStoryArgs, slot?: TemplateResult): Templ
   return html`
     <flow-modal
       ?deactivated=${args.deactivated}
+      storages=${ifDefined(args.storages)}
       storage-namespace=${args.storageNamespace}
       storage-duration=${args.storageDuration}
       @flowmodalstarted=${args.onModalStarted}
@@ -638,6 +645,7 @@ export const SingleStep: Story = {
   args: {
     // <flow-modal>
     deactivated: false,
+    storages: 'memory',
     storageNamespace: 'flow-modal',
     storageDuration: '30m',
     onModalStarted: fn(),
@@ -752,6 +760,7 @@ export const MultiStep: Story = {
   args: {
     // <flow-modal>
     deactivated: false,
+    storages: 'memory',
     storageNamespace: 'multi-step',
     storageDuration: '30m',
     onModalStarted: fn(),

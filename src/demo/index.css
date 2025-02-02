@@ -58,6 +58,10 @@ flow-badge {
 }
 
 @media (min-width: 600px) {
+  flow-step {
+    --modal-align-items: center;
+  }
+
   .control {
     flex-direction: row;
   }

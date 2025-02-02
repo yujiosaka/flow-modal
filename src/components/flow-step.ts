@@ -7,11 +7,11 @@ import { classMap } from 'lit/directives/class-map.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 
+import { assertEventType } from '../assertions.js';
 import { TimerController } from '../controllers.js';
 import { durationProperty, queryParentElement } from '../decorators.js';
 import { FlowModalError } from '../errors.js';
 import {
-  assertEventType,
   FlowBadgeActivatedEvent,
   FlowBadgeDeactivatedEvent,
   FlowBadgeHiddenEvent,
